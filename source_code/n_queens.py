@@ -88,10 +88,13 @@ def print_board(node):
 	return None
 
 def main(argv):
+	if len(argv) != 2:
+		print("Usage: `python3 ", argv[0], " <number_of_queens>`");
+		exit(1)
 	n = int(argv[1])
 	actions, initial_state_config = parse_input(n)
 	initial_state = Node(initial_state_config)
-	final_state_ids, nodes = ids(actions, initial_state, goal_test_fn, action_fn, n)
+	# final_state_ids, nodes = ids(actions, initial_state, goal_test_fn, action_fn, n)
 	final_state_as, nodes = a_star(actions, initial_state, cost_fn, action_fn, goal_test_fn, heuristic)
 	board = print_board(final_state_as)
 	if board:

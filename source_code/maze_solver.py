@@ -160,9 +160,12 @@ Main function to run the search algorithms from.
 '''
 
 def maze_solver(args):
+	if len(args) != 2:
+		print("Usage: `python3 ", args[0], " <path_to_maze_file>`");
+		exit(1)
+	data = read_file(args[1])  # The maze question file which is passed as first argument.
 	actions = ['right', 'down', 'left', 'up']
 	heuristics = [heuristic_rand, heuristic_zero, heuristic_manhattan, heuristic_straight_line]
-	data = read_file(args[1])  # The maze question file which is passed as first argument.
 	initial_state_config = parse_input(data)
 	initial_state = Node(initial_state_config)
 	maze = None
