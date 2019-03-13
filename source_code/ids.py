@@ -65,9 +65,10 @@ Function to iteratively perform search until a solution is found.
 @:param initial_node: The initial problem node from which to branch and find solutions.
 @:param goal_test_fn: The goal test for each problem that tells us to stop looking for solution.
 @:param action_fn: The function that sets the state for the child node.
+@:param start_depth: The depth at which search for solutions should start.
 '''
 
-def ids(actions, start_depth, initial_node, goal_test_fn, action_fn):
+def ids(actions, initial_node, goal_test_fn, action_fn, start_depth=0):
 	global NO_FRONTIER
 	global NODES
 	if goal_test_fn(initial_node):

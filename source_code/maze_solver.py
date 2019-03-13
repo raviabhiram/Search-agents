@@ -174,12 +174,12 @@ def maze_solver(args):
 		end = time.time()
 		maze = print_result('A* with ' + heuristic.__name__, end - start, final_state_as, nodes, initial_state_config)
 	# start = time.time()
-	# final_state_ids, nodes = ids(actions, initial_state_config['length'] + initial_state_config['height'], initial_state,
-	#                              goal_test_fn, action_fn)
+	# final_state_ids, nodes = ids(actions, initial_state, goal_test_fn, action_fn,
+	#                              initial_state_config['length'] + initial_state_config['height'])
 	# end = time.time()
 	# maze = print_result('IDS', end - start, final_state_ids, nodes, initial_state_config)
-	# if maze:
-	# 	draw_maze(maze)
+	if maze:
+		draw_maze(maze)
 
 if __name__ == '__main__':
 	maze_solver(sys.argv)
